@@ -1,0 +1,39 @@
+### BEGIN INIT INFO
+# Provides:             benqremote
+# Required-Start:       $local_fs
+# Required-Stop:        $local_fs
+# Default-Start:        2 3 4 5
+# Default-Stop:         0 1 
+# Short-Description:    benqremote script
+### END INIT INFO
+
+set -e
+
+. /lib/lsb/init-functions
+
+#! /bin/sh
+# /etc/init.d/benqremote
+#
+ 
+case "$1" in
+  start)
+    echo "Allumage du vidéo proj"
+    stty -F /dev/ttyUSB0 115200
+    stty -F /dev/ttyUSB0 raw
+    stty -F /dev/ttyUSB0 -echo -echoe -echok
+    echo -e "\r*pow=on#\r" > /dev/ttyUSB0
+    ;;
+  stop)
+    echo "Arret du vidéo proj"
+    stty -F /dev/ttyUSB0 115200
+    stty -F /dev/ttyUSB0 raw
+    stty -F /dev/ttyUSB0 -echo -echoe -echok
+    echo "\r*pow=off#\r" > /dev/ttyUSB0
+    sleep 1s
+    ;;
+  *)
+    echo "Usage: /etc/init.d/test {start|stop}"
+    exit 1
+    ;;
+esac
+exit 0
