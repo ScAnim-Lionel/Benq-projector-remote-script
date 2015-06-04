@@ -29,3 +29,7 @@ Linux serial permissions : http://websistent.com/fix-serial-port-permission-deni
 Apply service permissions for script to be executed in the right runlevels
 
 update-rc.d benqremote start 30 2 3 4 5 . stop 70 0 1 .
+
+Ultra big up to my linux heroes : 
+Brice https://github.com/tmator
+& Fabrice https://github.com/sack
