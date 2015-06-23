@@ -25,6 +25,9 @@ BenQ RS232 Commands : http://www.benq.com/download/projector/SW916/RS232%20comma
 
 Linux serial permissions : http://websistent.com/fix-serial-port-permission-denied-errors-linux/
 
+as root, copy benqremote in /etc/init.d
+make it executable
+chmod +x /etc/init.d/benqremote
 
 Apply service permissions for script to be executed in the right runlevels
 
